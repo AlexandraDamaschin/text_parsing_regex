@@ -25,7 +25,7 @@ class CustomRichText extends StatelessWidget {
 
     final widgets = <InlineSpan>[];
 
-    for (final rt in richTextData.textWithTag) {
+    for (final rt in richTextData.textWithTags) {
       widgets.add(
         TextSpan(
           text: rt.text,

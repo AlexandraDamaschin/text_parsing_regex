@@ -4,15 +4,15 @@ import 'package:flutter/material.dart';
 
 class RichTextData {
   RichTextData({
-    required this.textWithTag,
+    required this.textWithTags,
   });
 
-  final List<TextWithTag> textWithTag;
+  final List<TextWithTag> textWithTags;
 }
 
 class TextWithTag {
   TextWithTag({
-    required this.text,
+    this.text,
     this.style,
   });
 
@@ -34,7 +34,7 @@ class RegexRichText {
 
     final matches = regex.allMatches(text);
 
-    final richText = RichTextData(textWithTag: []);
+    final richText = RichTextData(textWithTags: []);
 
     var currentIndex = 0;
 
@@ -44,7 +44,7 @@ class RegexRichText {
       const defaultTextColor = Colors.grey;
 
       if (beforeText.isNotEmpty) {
-        richText.textWithTag.add(
+        richText.textWithTags.add(
           TextWithTag(
             text: beforeText,
           ),
@@ -79,7 +79,7 @@ class RegexRichText {
           );
         }
 
-        richText.textWithTag.add(
+        richText.textWithTags.add(
           TextWithTag(
             text: match.group(3).toString(),
             style: newTextStyle,
@@ -93,7 +93,7 @@ class RegexRichText {
     final remainingText = text.substring(currentIndex);
 
     if (remainingText.isNotEmpty) {
-      richText.textWithTag.add(
+      richText.textWithTags.add(
         TextWithTag(
           text: remainingText,
         ),
